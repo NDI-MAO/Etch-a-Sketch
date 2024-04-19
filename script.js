@@ -28,9 +28,14 @@ document.addEventListener("click", function(event) {
             grid = 16;
         } else if (event.target.id === "grid64") {
             grid = 64;
-        } else if (event.target.id === "grid100") {
-            grid = 100;
-        } else { alert("Please enter a valid grid size.");
+        } else if (event.target.id === "customgrid") {
+            grid = parseInt(prompt("register your grid", 10));
+            while (grid >= 101) {
+                alert("100 is the max number");
+                grid = parseInt(prompt("register your grid", 10));
+            }
+        }
+         else { alert("Please enter a valid grid size.");
             };
             
         }
