@@ -3,9 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> 🎨Etch a sketch</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="container"></div>
+    <p>This is the world, your canvas<br>express yourself in the gray box</p>
+    <div class="playground">
+        <div class="options">
+            <div class="optionOne">
+                <div class="title">Pick canvas size</div>
+                <div class="sizeHolder">
+                    <button class="sizeBox" id="grid10">10x10</button>
+                    <button class="sizeBox" id="grid16">16x16</button>
+                    <button class="sizeBox" id="grid64">64x64</button>
+                    <button class="sizeBox" id="grid100">custom size</button>
+                    
+
+                </div>
+            </div>
+            <div class="option2">
+                <div class="title">Pick your option</div>
+                <div class="optionHolder">
+                    <button class="optionBox">Pick color</button>
+                    <button class="optionBox">Rainbow</button>
+                    <button class="optionBox">Toggle grid</button>
+                    <button class="optionBox">Clear</button>
+                </div>
+            </div>
+            
+        </div>
+        <div id="container"></div>
+        <script src="./script.js"></script>
+    </div>
+   
 </body>
 </html>
