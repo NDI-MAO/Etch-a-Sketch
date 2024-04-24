@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 🎨Etch a sketch</title>
+    <title> Etch a sketch</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <p>This is the world, your canvas<br>express yourself in the gray box</p>
+    <p>This is your canvas,<br>draw in the gray box</p>
     <div class="playground">
         <div class="options">
             <div class="optionOne">
-                <div class="title">Pick canvas size</div>
+                <div class="title">Choose canvas size</div>
                 <div class="sizeHolder">
                     <button class="sizeBox" id="grid10">10x10</button>
                     <button class="sizeBox" id="grid16">16x16</button>
@@ -24,10 +24,12 @@
             <div class="option2">
                 <div class="title">Pick your option</div>
                 <div class="optionHolder">
-                    <button class="optionBox">Pick color</button>
-                    <button class="optionBox">Rainbow</button>
-                    <button class="optionBox">Toggle grid</button>
-                    <button class="optionBox">Clear</button>
+                
+                    <input type="color"id="colorPicker">
+                    <button class="optionBox" id="pickColor">Choose color</button>
+                    <button class="optionBox" id="rainbow">Rainbow</button>
+                    <button class="optionBox" id="toggleGrid">Toggle grid</button>
+                    <button class="optionBox" id="clear">Clear</button>
                 </div>
             </div>
             
