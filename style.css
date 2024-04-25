@@ -64,8 +64,10 @@ input[type="color"] {
     flex-wrap: wrap;
     height:500px;
     width: 500px;
-    background-color: rgb(210, 210, 210);
+    box-shadow: inset 0 0 0 1px black;
 }
-#newDivId{
-  background-color: rgb(210, 210, 210);
+/*.cell {
+    position: relative;
+    /* Add border to create grid lines */
+    box-shadow: inset 0 0 0 0.5px black;
 }
