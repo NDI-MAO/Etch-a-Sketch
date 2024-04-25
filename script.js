@@ -5,9 +5,11 @@ const toggleGridBtn = document.getElementById("toggleGrid");
 const clearBtn = document.getElementById("clear");
 const colorPicker = document.getElementById("colorPicker");
 
-let grid=8;
+
+let grid=5;
 let gridSize = grid*grid;
-let selectedColor ="black"
+let colorChoice = "pickColor";
+colorPicker.value = "#2F4F4F"; 
 
 function createGrid() {
     container.innerHTML = "";
@@ -20,45 +22,47 @@ for (let i = 1; i <= gridSize; i++) {
         newDiv.addEventListener("mouseover", getColor);
     }
 }
-
 //add event listeners
 pickColorBtn.addEventListener("click", function(){
+    colorPicker.click()
     colorChoice = "pickColor";
 });
+colorPicker.addEventListener("change", function(event){
+})
 rainbowBtn.addEventListener("click", function(){
     colorChoice = "rainbow";
 });
 toggleGridBtn.addEventListener("click", function(){
-    grid += "outlines";
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach(cell => {
+        let setGrid = cell.style.boxShadow;
+        if (setGrid) {
+            cell.style.boxShadow = "";
+        } else {
+            cell.style.boxShadow = "inset 0 0 0 .5px black";
+        }
+    });
 });
 clearBtn.addEventListener("click", function(){
     colorChoice = "clear";
-})
-
+});
 function getColor(e){
     switch(colorChoice){
         case "pickColor":
-            colorPicker.addEventListener("click", function(){
-                e.target.style.backgroundColor = value;  
-            })
+            e.target.style.backgroundColor = colorPicker.value;
             break;
         case "rainbow":
             const hexChars = "0123456789ABCDEF";
+            let rainbowColor = "#";
             for (let i = 0; i < 6; i++) {
-              selectedColor = "#"+hexChars[Math.floor(Math.random() * hexChars.length)];
-            }   
-            e.target.style.backgroundColor = selectedColor;
+                rainbowColor += hexChars[Math.floor(Math.random() * hexChars.length)];
+            }
+            e.target.style.backgroundColor = rainbowColor;
             break;
-        case "outlines":
-            e.target.style.borderColor = "black";
-            break;
-        case "clear":
-            selectedColor = rgb(210, 210, 210);
-            e.target.style.backgroundColor = selectedColor;
-
-
+            case "clear":
+                e.target.style.backgroundColor = ""; 
+                break;
     }
-
 }
 function regenerateGrid() {
     gridSize = grid * grid;
@@ -69,22 +73,15 @@ document.addEventListener("click", function(event) {
         if (event.target.id === "grid10"){
             grid = 10;
         } else if (event.target.id === "grid16") {
-            grid = 16;
+            grid = 25;
         } else if (event.target.id === "grid64") {
-            grid = 64;
+            grid = 50;
         } else if(event.target.id === "customgrid") {
             grid = parseInt(prompt("register your grid", 10));
-            while (grid >= 101) {
-                alert("100 is the max number");
-                grid = parseInt(prompt("register your grid", 10));
+            grid = Math.min(Math.max(grid, 1), 100);
             }
-        }
-         else { alert("Please enter a valid grid size.");
-            };
-        }
         regenerateGrid();
     }
-);
-
-
+        
+});
 createGrid();
